@@ -1,6 +1,6 @@
 # RaiSwap Classic Exchange Interface
 
-Forked from [Sushiswap/sushiswap-classic-exchange](https://github.com/sushiswap/sushiswap-classic-exchange), and updated to work with SushiSwap contracts.
+Forked from [Sushiswap/sushiswap-classic-exchange](https://github.com/sushiswap/sushiswap-classic-exchange), and updated to work with RaiSwap contracts.
 
 ## Accessing the RaiSwap Classic Exchange Interface
 
