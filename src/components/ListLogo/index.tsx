@@ -13,7 +13,7 @@ export default function ListLogo({
   logoURI,
   style,
   size = '24px',
-  alt
+  alt,
 }: {
   logoURI: string
   size?: string
@@ -22,5 +22,7 @@ export default function ListLogo({
 }) {
   const srcs: string[] = useHttpLocations(logoURI)
 
-  return <StyledListLogo alt={alt} size={size} srcs={srcs} style={style} />
+  /* MARK: TEMPORARY disabled */
+  // return <StyledListLogo alt={alt} size={size} srcs={srcs} style={style} />
+  return <StyledListLogo alt={alt} size={size} srcs={srcs} />
 }

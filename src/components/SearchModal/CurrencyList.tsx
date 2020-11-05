@@ -85,7 +85,7 @@ function CurrencyRow({
   onSelect,
   isSelected,
   otherSelected,
-  style
+  style,
 }: {
   currency: Currency
   onSelect: () => void
@@ -106,7 +106,8 @@ function CurrencyRow({
   // only show add or remove buttons if not on selected list
   return (
     <MenuItem
-      style={style}
+      /* MARK: TEMPORARY disabled */
+      // style={style}
       className={`token-item-${key}`}
       onClick={() => (isSelected ? null : onSelect())}
       disabled={isSelected}
@@ -122,7 +123,7 @@ function CurrencyRow({
             <TYPE.main fontWeight={500}>
               Added by user
               <LinkStyledButton
-                onClick={event => {
+                onClick={(event) => {
                   event.stopPropagation()
                   if (chainId && currency instanceof Token) removeToken(chainId, currency.address)
                 }}
@@ -135,7 +136,7 @@ function CurrencyRow({
             <TYPE.main fontWeight={500}>
               Found by address
               <LinkStyledButton
-                onClick={event => {
+                onClick={(event) => {
                   event.stopPropagation()
                   if (currency instanceof Token) addToken(currency)
                 }}
@@ -161,7 +162,7 @@ export default function CurrencyList({
   onCurrencySelect,
   otherCurrency,
   fixedListRef,
-  showETH
+  showETH,
 }: {
   height: number
   currencies: Currency[]
