@@ -51,7 +51,7 @@ export function V1LiquidityInfo({
   token,
   liquidityTokenAmount,
   tokenWorth,
-  ethWorth
+  ethWorth,
 }: {
   token: Token
   liquidityTokenAmount: TokenAmount
@@ -130,12 +130,7 @@ function V1PairMigration({ liquidityTokenAmount, token }: { liquidityTokenAmount
       : null
 
   const priceDifferenceFraction: Fraction | undefined =
-    v1SpotPrice && v2SpotPrice
-      ? v1SpotPrice
-          .divide(v2SpotPrice)
-          .multiply('100')
-          .subtract('100')
-      : undefined
+    v1SpotPrice && v2SpotPrice ? v1SpotPrice.divide(v2SpotPrice).multiply('100').subtract('100') : undefined
 
   const priceDifferenceAbs: Fraction | undefined = priceDifferenceFraction?.lessThan(ZERO)
     ? priceDifferenceFraction?.multiply('-1')
@@ -143,10 +138,7 @@ function V1PairMigration({ liquidityTokenAmount, token }: { liquidityTokenAmount
 
   const minAmountETH: JSBI | undefined =
     v2SpotPrice && tokenWorth
-      ? tokenWorth
-          .divide(v2SpotPrice)
-          .multiply(WEI_DENOM)
-          .multiply(ALLOWED_OUTPUT_MIN_PERCENT).quotient
+      ? tokenWorth.divide(v2SpotPrice).multiply(WEI_DENOM).multiply(ALLOWED_OUTPUT_MIN_PERCENT).quotient
       : ethWorth?.numerator
 
   const minAmountToken: JSBI | undefined =
@@ -177,11 +169,11 @@ function V1PairMigration({ liquidityTokenAmount, token }: { liquidityTokenAmount
         ReactGA.event({
           category: 'Migrate',
           action: 'V1->V2',
-          label: token?.symbol
+          label: token?.symbol,
         })
 
         addTransaction(response, {
-          summary: `Migrate ${token.symbol} liquidity to V2`
+          summary: `Migrate ${token.symbol} liquidity to V2`,
         })
         setPendingMigrationHash(response.hash)
       })
@@ -325,8 +317,8 @@ function V1PairMigration({ liquidityTokenAmount, token }: { liquidityTokenAmount
 export default function MigrateV1Exchange({
   history,
   match: {
-    params: { address }
-  }
+    params: { address },
+  },
 }: RouteComponentProps<{ address: string }>) {
   const validatedAddress = isAddress(address)
   const { chainId, account } = useActiveWeb3React()

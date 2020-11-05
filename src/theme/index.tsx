@@ -4,7 +4,7 @@ import styled, {
   ThemeProvider as StyledComponentsThemeProvider,
   createGlobalStyle,
   css,
-  DefaultTheme
+  DefaultTheme,
 } from 'styled-components'
 import { useIsDarkMode } from '../state/user/hooks'
 import { Text, TextProps } from 'rebass'
@@ -16,7 +16,7 @@ const MEDIA_WIDTHS = {
   upToExtraSmall: 500,
   upToSmall: 600,
   upToMedium: 960,
-  upToLarge: 1280
+  upToLarge: 1280,
 }
 
 const mediaWidthTemplates: { [width in keyof typeof MEDIA_WIDTHS]: typeof css } = Object.keys(MEDIA_WIDTHS).reduce(
@@ -78,7 +78,7 @@ export function colors(darkMode: boolean): Colors {
     red2: '#F82D3A',
     green1: '#27AE60',
     yellow1: '#FFE270',
-    yellow2: '#F3841E'
+    yellow2: '#F3841E',
 
     // dont wanna forget these blue yet
     // blue4: darkMode ? '#153d6f70' : '#C4D9F8',
@@ -93,7 +93,7 @@ export function theme(darkMode: boolean): DefaultTheme {
     grids: {
       sm: 8,
       md: 12,
-      lg: 24
+      lg: 24,
     },
 
     //shadows
@@ -110,7 +110,7 @@ export function theme(darkMode: boolean): DefaultTheme {
     flexRowNoWrap: css`
       display: flex;
       flex-flow: row nowrap;
-    `
+    `,
   }
 }
 
@@ -165,7 +165,7 @@ export const TYPE = {
   },
   error({ error, ...props }: { error: boolean } & TextProps) {
     return <TextWrapper fontWeight={500} color={error ? 'red1' : 'text2'} {...props} />
-  }
+  },
 }
 
 export const FixedGlobalStyle = createGlobalStyle`
