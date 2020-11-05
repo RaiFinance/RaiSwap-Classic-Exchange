@@ -17,7 +17,7 @@ export default function ListUpdatePopup({
   listUrl,
   oldList,
   newList,
-  auto
+  auto,
 }: {
   popKey: string
   listUrl: string
@@ -34,7 +34,7 @@ export default function ListUpdatePopup({
     ReactGA.event({
       category: 'Lists',
       action: 'Update List from Popup',
-      label: listUrl
+      label: listUrl,
     })
     dispatch(acceptListUpdate(listUrl))
     removeThisPopup()

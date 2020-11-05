@@ -34,8 +34,8 @@ const UnpaddedLinkStyledButton = styled(LinkStyledButton)`
 
 const PopoverContainer = styled.div<{ show: boolean }>`
   z-index: 100;
-  visibility: ${props => (props.show ? 'visible' : 'hidden')};
-  opacity: ${props => (props.show ? 1 : 0)};
+  visibility: ${(props) => (props.show ? 'visible' : 'hidden')};
+  opacity: ${(props) => (props.show ? 1 : 0)};
   transition: visibility 150ms linear, opacity 150ms linear;
   background: ${({ theme }) => theme.bg2};
   border: 1px solid ${({ theme }) => theme.bg3};
@@ -91,7 +91,7 @@ function listUrlRowHTMLId(listUrl: string) {
 }
 
 const ListRow = memo(function ListRow({ listUrl, onBack }: { listUrl: string; onBack: () => void }) {
-  const listsByUrl = useSelector<AppState, AppState['lists']['byUrl']>(state => state.lists.byUrl)
+  const listsByUrl = useSelector<AppState, AppState['lists']['byUrl']>((state) => state.lists.byUrl)
   const selectedListUrl = useSelectedListUrl()
   const dispatch = useDispatch<AppDispatch>()
   const { current: list, pendingUpdate: pending } = listsByUrl[listUrl]
@@ -108,7 +108,7 @@ const ListRow = memo(function ListRow({ listUrl, onBack }: { listUrl: string; on
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     placement: 'auto',
     strategy: 'fixed',
-    modifiers: [{ name: 'offset', options: { offset: [8, 8] } }]
+    modifiers: [{ name: 'offset', options: { offset: [8, 8] } }],
   })
 
   useOnClickOutside(node, open ? toggle : undefined)
@@ -118,7 +118,7 @@ const ListRow = memo(function ListRow({ listUrl, onBack }: { listUrl: string; on
     ReactGA.event({
       category: 'Lists',
       action: 'Select List',
-      label: listUrl
+      label: listUrl,
     })
 
     dispatch(selectList(listUrl))
@@ -130,7 +130,7 @@ const ListRow = memo(function ListRow({ listUrl, onBack }: { listUrl: string; on
     ReactGA.event({
       category: 'Lists',
       action: 'Update List from List Select',
-      label: listUrl
+      label: listUrl,
     })
     dispatch(acceptListUpdate(listUrl))
   }, [dispatch, listUrl, pending])
@@ -139,13 +139,13 @@ const ListRow = memo(function ListRow({ listUrl, onBack }: { listUrl: string; on
     ReactGA.event({
       category: 'Lists',
       action: 'Start Remove List',
-      label: listUrl
+      label: listUrl,
     })
     if (window.prompt(`Please confirm you would like to remove this list by typing REMOVE`) === `REMOVE`) {
       ReactGA.event({
         category: 'Lists',
         action: 'Confirm Remove List',
-        label: listUrl
+        label: listUrl,
       })
       dispatch(removeList(listUrl))
     }
@@ -172,7 +172,7 @@ const ListRow = memo(function ListRow({ listUrl, onBack }: { listUrl: string; on
         </Row>
         <Row
           style={{
-            marginTop: '4px'
+            marginTop: '4px',
           }}
         >
           <StyledListUrlText title={listUrl}>
@@ -187,7 +187,7 @@ const ListRow = memo(function ListRow({ listUrl, onBack }: { listUrl: string; on
             padding: '.8rem .35rem',
             borderRadius: '12px',
             fontSize: '14px',
-            marginRight: '0.5rem'
+            marginRight: '0.5rem',
           }}
           onClick={toggle}
           ref={setReferenceElement}
@@ -226,7 +226,7 @@ const ListRow = memo(function ListRow({ listUrl, onBack }: { listUrl: string; on
               minWidth: '4.5rem',
               padding: '0.5rem .35rem',
               borderRadius: '12px',
-              fontSize: '14px'
+              fontSize: '14px',
             }}
             onClick={selectThisList}
           >
@@ -255,13 +255,13 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
   const [listUrlInput, setListUrlInput] = useState<string>('')
 
   const dispatch = useDispatch<AppDispatch>()
-  const lists = useSelector<AppState, AppState['lists']['byUrl']>(state => state.lists.byUrl)
+  const lists = useSelector<AppState, AppState['lists']['byUrl']>((state) => state.lists.byUrl)
   const adding = Boolean(lists[listUrlInput]?.loadingRequestId)
   const [addError, setAddError] = useState<string | null>(null)
 
   const { t } = useTranslation()
 
-  const handleInput = useCallback(e => {
+  const handleInput = useCallback((e) => {
     setListUrlInput(e.target.value)
     setAddError(null)
   }, [])
@@ -276,14 +276,14 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
         ReactGA.event({
           category: 'Lists',
           action: 'Add List',
-          label: listUrlInput
+          label: listUrlInput,
         })
       })
-      .catch(error => {
+      .catch((error) => {
         ReactGA.event({
           category: 'Lists',
           action: 'Add List Failed',
-          label: listUrlInput
+          label: listUrlInput,
         })
         setAddError(error.message)
         dispatch(removeList(listUrlInput))
@@ -295,7 +295,7 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
   }, [listUrlInput])
 
   const handleEnterKey = useCallback(
-    e => {
+    (e) => {
       if (validUrl && e.key === 'Enter') {
         handleAddList()
       }
@@ -306,7 +306,7 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
   const sortedLists = useMemo(() => {
     const listUrls = Object.keys(lists)
     return listUrls
-      .filter(listUrl => {
+      .filter((listUrl) => {
         return Boolean(lists[listUrl].current)
       })
       .sort((u1, u2) => {
@@ -333,7 +333,7 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
             <ArrowLeft style={{ cursor: 'pointer' }} onClick={onBack} />
           </div>
           <Text fontWeight={500} fontSize={20}>
-          {t('manageList')}
+            {t('manageList')}
           </Text>
           <CloseIcon onClick={onDismiss} />
         </RowBetween>
@@ -370,7 +370,7 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
       <Separator />
 
       <ListContainer>
-        {sortedLists.map(listUrl => (
+        {sortedLists.map((listUrl) => (
           <ListRow key={listUrl} listUrl={listUrl} onBack={onBack} />
         ))}
       </ListContainer>
