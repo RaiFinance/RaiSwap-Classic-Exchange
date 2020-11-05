@@ -4,7 +4,7 @@ Forked from [Sushiswap/sushiswap-classic-exchange](https://github.com/sushiswap/
 
 ## Accessing the RaiSwap Classic Exchange Interface
 
-To access the SushiSwap Exchnage, visit [exchange.rai.finance](https://exchange.rai.finance/#/).
+To access the RaiSwap Exchnage, visit [exchange.rai.finance](https://exchange.rai.finance/#/).
 
 ## Development
 
