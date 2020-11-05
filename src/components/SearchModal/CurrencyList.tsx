@@ -106,7 +106,8 @@ function CurrencyRow({
   // only show add or remove buttons if not on selected list
   return (
     <MenuItem
-      style={style}
+      /* MARK: TEMPORARY disabled */
+      // style={style}
       className={`token-item-${key}`}
       onClick={() => (isSelected ? null : onSelect())}
       disabled={isSelected}

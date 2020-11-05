@@ -7,7 +7,7 @@ import { checkedTransaction, finalizeTransaction } from './actions'
 
 export function shouldCheck(
   lastBlockNumber: number,
-  tx: { addedTime: number; receipt?: Record<string, unknown>; lastCheckedBlockNumber?: number }
+  tx: { addedTime: number; receipt?: any; lastCheckedBlockNumber?: number }
 ): boolean {
   if (tx.receipt) return false
   if (!tx.lastCheckedBlockNumber) return true
