@@ -12,11 +12,11 @@ import { darken } from 'polished'
 enum SlippageError {
   InvalidInput = 'InvalidInput',
   RiskyLow = 'RiskyLow',
-  RiskyHigh = 'RiskyHigh'
+  RiskyHigh = 'RiskyHigh',
 }
 
 enum DeadlineError {
-  InvalidInput = 'InvalidInput'
+  InvalidInput = 'InvalidInput',
 }
 
 const FancyButton = styled.button`
@@ -201,7 +201,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
                 onBlur={() => {
                   parseCustomSlippage((rawSlippage / 100).toFixed(2))
                 }}
-                onChange={e => parseCustomSlippage(e.target.value)}
+                onChange={(e) => parseCustomSlippage(e.target.value)}
                 color={!slippageInputIsValid ? 'red' : ''}
               />
               %
@@ -213,7 +213,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
             style={{
               fontSize: '14px',
               paddingTop: '7px',
-              color: slippageError === SlippageError.InvalidInput ? 'red' : '#F3841E'
+              color: slippageError === SlippageError.InvalidInput ? 'red' : '#F3841E',
             }}
           >
             {slippageError === SlippageError.InvalidInput
@@ -228,7 +228,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
       <AutoColumn gap="sm">
         <RowFixed>
           <TYPE.black fontSize={14} fontWeight={400} color={theme.text2}>
-          {t('transactionDeadline')}
+            {t('transactionDeadline')}
           </TYPE.black>
           <QuestionHelper text="Your transaction will revert if it is pending for more than this long." />
         </RowFixed>
@@ -241,11 +241,11 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
               }}
               placeholder={(deadline / 60).toString()}
               value={deadlineInput}
-              onChange={e => parseCustomDeadline(e.target.value)}
+              onChange={(e) => parseCustomDeadline(e.target.value)}
             />
           </OptionCustom>
           <TYPE.body style={{ paddingLeft: '8px' }} fontSize={14}>
-          {t('minutes')}
+            {t('minutes')}
           </TYPE.body>
         </RowFixed>
       </AutoColumn>
