@@ -10,7 +10,7 @@ import AddLiquidity from './AddLiquidity'
 import {
   RedirectDuplicateTokenIds,
   RedirectOldAddLiquidityPathStructure,
-  RedirectToAddLiquidity
+  RedirectToAddLiquidity,
 } from './AddLiquidity/redirects'
 import MigrateV1 from './MigrateV1'
 import MigrateV1Exchange from './MigrateV1/MigrateV1Exchange'
