@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { DollarSign, Code, Sunrise, MessageCircle, PieChart } from 'react-feather'
+import { Code, PieChart } from 'react-feather'
 import styled from 'styled-components'
 import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
@@ -94,23 +94,11 @@ export default function Menu() {
       </StyledMenuButton>
       {open && (
         <MenuFlyout>
-          <MenuItem id="link" href="https://sushiswap.vision/">
+          <MenuItem id="link" href="https://rai.finance/">
             <PieChart size={14} />
-            {t('analytics')}
+            {t('Vision')}
           </MenuItem>
-          <MenuItem id="link" href="https://sushiswapclassic.org/staking">
-            <DollarSign size={14} />
-            {t('stake')}
-          </MenuItem>
-          <MenuItem id="link" href="https://sushiswapclassic.org/farms">
-            <Sunrise size={14} />
-            {t('farm')}
-          </MenuItem>
-          <MenuItem id="link" href="https://discord.gg/AgJsrK7">
-            <MessageCircle size={14} />
-            {t('discord')}
-          </MenuItem>
-          <MenuItem id="link" href="https://github.com/jiro-ono/sushiswap-classic-interface">
+          <MenuItem id="link" href="https://github.com/RaiFinance/RaiSwap-Classic-Exchange">
             <Code size={14} />
             {t('code')}
           </MenuItem>
