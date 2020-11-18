@@ -142,37 +142,78 @@ export default function Header() {
   const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
   const [isDark] = useDarkModeManager()
 
-  return (
-    <HeaderFrame>
-      <RowBetween style={{ alignItems: 'flex-start' }} padding="1rem 1rem 0 1rem">
-        <HeaderElement>
-          <Title href=".">
-            <UniIcon>
-              <img style={{ height: 36, width: 100 }} src={isDark ? LogoDark : Logo} alt="logo" />
-            </UniIcon>
-          </Title>
-        </HeaderElement>
-        <HeaderControls>
+  if (chainId !== ChainId.ROPSTEN)
+    return (
+      <HeaderFrame>
+        <RowBetween style={{ alignItems: 'flex-start' }} padding="1rem 1rem 0 1rem">
           <HeaderElement>
-            <TestnetWrapper>
-              {!isMobile && chainId && NETWORK_LABELS[chainId] && <NetworkCard>{NETWORK_LABELS[chainId]}</NetworkCard>}
-            </TestnetWrapper>
-            <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
-              {account && userEthBalance ? (
-                <BalanceText style={{ flexShrink: 0 }} pl="0.75rem" pr="0.5rem" fontWeight={500}>
-                  {userEthBalance?.toSignificant(4)} ETH
-                </BalanceText>
-              ) : null}
-              <Web3Status />
-            </AccountElement>
+            <Title href=".">
+              <UniIcon>
+                <img style={{ height: 36, width: 100 }} src={isDark ? LogoDark : Logo} alt="logo" />
+              </UniIcon>
+            </Title>
           </HeaderElement>
-          <HeaderElementWrap>
-            {/* <VersionSwitch /> */}
-            <Settings />
-            <Menu />
-          </HeaderElementWrap>
-        </HeaderControls>
-      </RowBetween>
-    </HeaderFrame>
-  )
+          <HeaderControls>
+            <HeaderElement>
+              <TestnetWrapper>
+                {!isMobile && chainId && NETWORK_LABELS[chainId] && (
+                  <NetworkCard>{NETWORK_LABELS[chainId]}</NetworkCard>
+                )}
+              </TestnetWrapper>
+              <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
+                {account && userEthBalance ? (
+                  <BalanceText style={{ flexShrink: 0 }} pl="0.75rem" pr="0.5rem" fontWeight={500}>
+                    {userEthBalance?.toSignificant(4)} ETH
+                  </BalanceText>
+                ) : null}
+                <Web3Status />
+              </AccountElement>
+            </HeaderElement>
+            <HeaderElementWrap>
+              {/* <VersionSwitch /> */}
+              <Settings />
+              <Menu />
+            </HeaderElementWrap>
+          </HeaderControls>
+        </RowBetween>
+      </HeaderFrame>
+    )
+  else
+    return (
+      <HeaderFrame>
+        <RowBetween style={{ alignItems: 'flex-start' }} padding="1rem 1rem 0 1rem">
+          <HeaderElement>
+            <Title href=".">
+              <UniIcon>
+                <img style={{ height: 36, width: 100 }} src={isDark ? LogoDark : Logo} alt="logo" />
+              </UniIcon>
+            </Title>
+          </HeaderElement>
+          <HeaderControls>
+            <HeaderElement>
+              <a href="https://ropsten.etherscan.io/">
+                <TestnetWrapper>
+                  {!isMobile && chainId && NETWORK_LABELS[chainId] && (
+                    <NetworkCard>{NETWORK_LABELS[chainId]}</NetworkCard>
+                  )}
+                </TestnetWrapper>
+              </a>
+              <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
+                {account && userEthBalance ? (
+                  <BalanceText style={{ flexShrink: 0 }} pl="0.75rem" pr="0.5rem" fontWeight={500}>
+                    {userEthBalance?.toSignificant(4)} ETH
+                  </BalanceText>
+                ) : null}
+                <Web3Status />
+              </AccountElement>
+            </HeaderElement>
+            <HeaderElementWrap>
+              {/* <VersionSwitch /> */}
+              <Settings />
+              <Menu />
+            </HeaderElementWrap>
+          </HeaderControls>
+        </RowBetween>
+      </HeaderFrame>
+    )
 }
