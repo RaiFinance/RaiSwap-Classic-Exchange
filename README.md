@@ -14,11 +14,19 @@ To access the RaiSwap Exchnage, visit [exchange.rai.finance](https://exchange.ra
 yarn
 ```
 
-### Run
+### Method A) Run (Developing & Serving Mode)
 
 ```bash
 yarn start
 ```
+
+### Method B) Build static pages.
+
+```bash
+yarn build
+```
+
+- Serve files under ```/build```
 
 ## Contributions
 
