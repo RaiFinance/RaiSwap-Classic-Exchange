@@ -16,6 +16,7 @@ export const USDT = new Token(ChainId.MAINNET, '0xdAC17F958D2ee523a2206206994597
 export const COMP = new Token(ChainId.MAINNET, '0xc00e94Cb662C3520282E6f5717214004A7f26888', 18, 'COMP', 'Compound')
 export const MKR = new Token(ChainId.MAINNET, '0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2', 18, 'MKR', 'Maker')
 export const AMPL = new Token(ChainId.MAINNET, '0xD46bA6D942050d489DBd938a2C909A5d5039A161', 9, 'AMPL', 'Ampleforth')
+export const DEV = new Token(2781, '0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b', 4, 'DEV', 'DEV ETH')
 
 const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
@@ -28,7 +29,7 @@ const WETH_ONLY: ChainTokenList = {
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, COMP, MKR],
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, COMP, MKR, DEV]
 }
 
 /**
@@ -37,31 +38,31 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
  */
 export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: Token[] } } = {
   [ChainId.MAINNET]: {
-    [AMPL.address]: [DAI, WETH[ChainId.MAINNET]],
-  },
+    [AMPL.address]: [DAI, WETH[ChainId.MAINNET]]
+  }
 }
 
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT],
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, DEV]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT],
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, DEV]
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
   [ChainId.MAINNET]: [
     [
       new Token(ChainId.MAINNET, '0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643', 8, 'cDAI', 'Compound Dai'),
-      new Token(ChainId.MAINNET, '0x39AA39c021dfbaE8faC545936693aC917d5E7563', 8, 'cUSDC', 'Compound USD Coin'),
+      new Token(ChainId.MAINNET, '0x39AA39c021dfbaE8faC545936693aC917d5E7563', 8, 'cUSDC', 'Compound USD Coin')
     ],
     [USDC, USDT],
-    [DAI, USDT],
-  ],
+    [DAI, USDT]
+  ]
 }
 
 export interface WalletInfo {
@@ -84,7 +85,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     description: 'Injected web3 provider.',
     href: null,
     color: '#010101',
-    primary: true,
+    primary: true
   },
   METAMASK: {
     connector: injected,
@@ -92,7 +93,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     iconName: 'metamask.png',
     description: 'Easy-to-use browser extension.',
     href: null,
-    color: '#E8831D',
+    color: '#E8831D'
   },
   WALLET_CONNECT: {
     connector: walletconnect,
@@ -101,7 +102,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
     href: null,
     color: '#4196FC',
-    mobile: true,
+    mobile: true
   },
   WALLET_LINK: {
     connector: walletlink,
@@ -109,7 +110,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     iconName: 'coinbaseWalletIcon.svg',
     description: 'Use Coinbase Wallet app on mobile device',
     href: null,
-    color: '#315CF5',
+    color: '#315CF5'
   },
   COINBASE_LINK: {
     name: 'Open in Coinbase Wallet',
@@ -118,7 +119,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     href: 'https://go.cb-w.com/mtUDhEZPy1',
     color: '#315CF5',
     mobile: true,
-    mobileOnly: true,
+    mobileOnly: true
   },
   FORTMATIC: {
     connector: fortmatic,
@@ -127,7 +128,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     description: 'Login using Fortmatic hosted wallet',
     href: null,
     color: '#6748FF',
-    mobile: true,
+    mobile: true
   },
   Portis: {
     connector: portis,
@@ -136,8 +137,8 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     description: 'Login using Portis hosted wallet',
     href: null,
     color: '#4A6C9B',
-    mobile: true,
-  },
+    mobile: true
+  }
 }
 
 export const NetworkContextName = 'NETWORK'
