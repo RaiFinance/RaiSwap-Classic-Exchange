@@ -68,7 +68,6 @@ export default function App() {
             <Header />
           </HeaderWrapper>
           <BodyWrapper>
-            {/*<Popups />*/}
             <Web3ReactManager>
               <Switch>
                 <Route exact strict path="/swap" component={Swap} />

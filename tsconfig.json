@@ -28,7 +28,8 @@
     "allowSyntheticDefaultImports": true,
     "types": [
       "react-spring",
-      "jest"
+      "jest",
+      "jquery"
     ]
   },
   "exclude": [
