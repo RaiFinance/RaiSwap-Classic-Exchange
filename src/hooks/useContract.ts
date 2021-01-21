@@ -1,5 +1,5 @@
 import { Contract } from '@ethersproject/contracts'
-import { ChainId, WETH } from '@uniswap/sdk'
+import { ChainId } from '@uniswap/sdk'
 import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import { useMemo } from 'react'
 import ENS_ABI from '../constants/abis/ens-registrar.json'
@@ -48,7 +48,6 @@ export function useTokenContract(tokenAddress?: string, withSignerIfPossible?: b
 
 export function useWETHContract(withSignerIfPossible?: boolean): Contract | null {
   const { chainId, account } = useActiveWeb3React()
-  console.log('DEBUG  ===>', chainId, WETH)
   return useContract(chainId ? (account == null ? undefined : account) : undefined, WETH_ABI, withSignerIfPossible)
 }
 

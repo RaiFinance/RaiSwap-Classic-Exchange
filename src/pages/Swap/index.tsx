@@ -13,7 +13,7 @@ import ConfirmSwapModal from '../../components/swap/ConfirmSwapModal'
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
 import { SwapPoolTabs } from '../../components/NavigationTabs'
 import { AutoRow, RowBetween } from '../../components/Row'
-import AdvancedSwapDetailsDropdown from '../../components/swap/AdvancedSwapDetailsDropdown'
+// import AdvancedSwapDetailsDropdown from '../../components/swap/AdvancedSwapDetailsDropdown'
 import BetterTradeLink from '../../components/swap/BetterTradeLink'
 import confirmPriceImpactWithoutFee from '../../components/swap/confirmPriceImpactWithoutFee'
 import { ArrowWrapper, BottomGrouping, SwapCallbackError, Wrapper } from '../../components/swap/styleds'
@@ -190,7 +190,7 @@ export default function Swap() {
     recipient
   )
 
-  console.log('🍣', swapCallback, trade, allowedSlippage, deadline, recipient)
+  // console.log('🍣', swapCallback, trade, allowedSlippage, deadline, recipient)
 
   const { priceImpactWithoutFee } = computeTradePriceBreakdown(trade)
 
@@ -489,7 +489,7 @@ export default function Swap() {
           </td>
         </tr>
       </table>
-      <AdvancedSwapDetailsDropdown trade={trade} />
+      {/*<AdvancedSwapDetailsDropdown trade={trade} />*/}
     </>
   )
 }
