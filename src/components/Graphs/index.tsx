@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 // import styled from 'styled-components'
-import styled from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 import { AutoColumn } from '../Column'
 import { Line } from 'react-chartjs-2'
 // import { AutoColumn } from '../Column'
@@ -233,7 +233,7 @@ export default function Graphs() {
 
   const [subData, setSubData] = useState(initData)
   const [labels, setLabels] = useState(initLabels)
-
+  const theme = useContext(ThemeContext)
   useEffect(() => {
     if (labels.length > 0 || subData.length > 0) {
       return
@@ -300,14 +300,14 @@ export default function Graphs() {
               value = value.join(',')
               return value
             },
-            fontColor: 'white'
+            fontColor: theme.text1
           }
         }
       ],
       xAxes: [
         {
           ticks: {
-            fontColor: 'white'
+            fontColor: theme.text1
           }
         }
       ]
@@ -315,16 +315,16 @@ export default function Graphs() {
     maintainAspectRatio: false,
     legend: {
       labels: {
-        fontColor: 'white'
+        fontColor: theme.text1
       },
     },
     tooltips: {
-      bodyFontColor: 'white'
+      bodyFontColor: theme.text1
     },
     title: {
       display: true,
       text: 'Liquidity',
-      fontColor: 'white',
+      fontColor: theme.text1,
       fontSize: 24
     }
   }
