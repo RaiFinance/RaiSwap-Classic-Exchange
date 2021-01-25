@@ -1,12 +1,7 @@
 {
   "name": "RaiSwap Demo",
   "logoURI": "https://swap.rai.finance/logo.svg",
-  "keywords": [
-    "defi",
-    "raiswap",
-    "RAI",
-    "RaiFinance"
-  ],
+  "keywords": ["defi", "raiswap", "RAI", "RaiFinance"],
   "timestamp": "2021-01-25T10:52:52.000+09:00",
   "tokens": [
     {
@@ -14,22 +9,24 @@
       "address": "0xE7b74083383acE8e2dAa3692B3C928ef972631e5",
       "name": "RaiFinance Token1",
       "symbol": "RAI1",
-      "decimals":  18
+      "decimals": 18,
+      "logoURI": "https://swap.rai.finance/logo.svg"
     },
     {
       "chainId": 3,
       "address": "0xC87b321c08f94035a16CFf48337dbd985364736b",
       "name": "RaiFinance Token2",
       "symbol": "RAI1",
-      "decimals":  18
+      "decimals": 18,
+      "logoURI": "https://swap.rai.finance/logo.svg"
     },
     {
       "chainID": 3,
       "address": "0x8546a46519C543c9f15B0A32e7b8Da6700012ff1",
       "name": "RaiFinance Token",
       "symbol": "RAI",
-      "decimals":  18
+      "decimals": 18,
+      "logoURI": "https://swap.rai.finance/logo.svg"
     }
-
   ]
 }
