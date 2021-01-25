@@ -2,8 +2,8 @@
   "name": "RaiSwap Demo",
   "logoURI": "https://swap.rai.finance/logo.svg",
   "version": {
-    "major": 1,
-    "minor": 0,
+    "major": 0,
+    "minor": 1,
     "patch": 0
   },
   "keywords": ["defi", "raiswap", "RAI", "RaiFinance"],
@@ -21,7 +21,7 @@
       "chainId": 3,
       "address": "0xC87b321c08f94035a16CFf48337dbd985364736b",
       "name": "Token2",
-      "symbol": "RAI1",
+      "symbol": "RAI2",
       "decimals": 18,
       "logoURI": "https://swap.rai.finance/logo.svg"
     },
