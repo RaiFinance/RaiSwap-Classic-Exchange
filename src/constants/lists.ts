@@ -1,6 +1,6 @@
 // the SushiSwap Default token list lives here
 export const DEFAULT_TOKEN_LIST_URL =
-  'https://swap.rai.finance/tokens.json'
+  'https://raw.githubusercontent.com/RaiFinance/RaiSwap-Classic-Exchange/main/public/tokens.json'
 
 export const DEFAULT_LIST_OF_LISTS: string[] = [
   DEFAULT_TOKEN_LIST_URL,
