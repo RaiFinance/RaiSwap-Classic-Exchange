@@ -449,7 +449,7 @@ describe('list reducer', () => {
           if (url === DEFAULT_TOKEN_LIST_URL) {
             expect(s.byUrl[url]).toEqual({
               error: null,
-              current: UNISWAP_DEFAULT_TOKEN_LIST,
+              current: UNISWAP_DEFAULT_LIST,
               loadingRequestId: null,
               pendingUpdate: null,
             })

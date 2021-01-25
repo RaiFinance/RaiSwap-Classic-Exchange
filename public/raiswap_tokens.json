@@ -1,8 +1,13 @@
 {
   "name": "RaiSwap Demo",
+  "timestamp": "2021-01-25T10:52:52.000+09:00",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
   "logoURI": "https://swap.rai.finance/logo.svg",
   "keywords": ["defi", "raiswap", "RAI", "RaiFinance"],
-  "timestamp": "2021-01-25T10:52:52.000+09:00",
   "tokens": [
     {
       "chainId": 3,
